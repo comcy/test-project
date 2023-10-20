@@ -1,0 +1,10 @@
+/**
+ * Test
+ */
+
+/**/
+public someFunction {
+    return "";
+}
+
+
