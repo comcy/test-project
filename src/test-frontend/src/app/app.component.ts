@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuBarItem } from './shared/components/menu-bar/menu-bar.interfaces';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'test-frontend';
+  title = 'My Portfolio';
 
-  public users = ['1', '2', '3'];
+  public menuItems: MenuBarItem[] = [
+    {
+      name: 'Portfolio',
+      routePath: 'overview',
+    },
+    {
+      name: 'Impressum',
+      routePath: 'impressum',
+    },
+    {
+      name: '404',
+      routePath: 'somewhatever',
+    },
+  ];
 }
