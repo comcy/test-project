@@ -5,6 +5,8 @@
 
 <div class="container">
   <div class="table-container">
+    
+    
     <table
       mat-table
       [dataSource]="portfolioList"
@@ -31,6 +33,20 @@
       <ng-container matColumnDef="wkn">
         <th mat-header-cell *matHeaderCellDef>WKN</th>
         <td mat-cell *matCellDef="let row">{{ row.wkn }}</td>
+      </ng-container>
+
+      <!-- WKN Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let row">
+          <!-- Hier fügst du den HTML-Code für die Aktion ein -->
+          <!-- Beispiel: Ein Button, der eine Methode aufruft -->
+          <button mat-flat-button color="primary" (click)="add()">+</button>
+          <span class="spacer"></span>
+          <button mat-stroked-button color="primary" (click)="openDialog()">
+            + Dialog
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
