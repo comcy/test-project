@@ -22,6 +22,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   styleUrl: './menu-bar.component.scss',
 })
 export class MenuBarComponent {
+  // Input() is used to pass data from the parent component to the child component.
+  // In this case the data is passed from the app.component.html to the menu-bar.component.html.
   @Input() title: string = '';
   @Input() menuBarItems: MenuBarItem[] = [];
 

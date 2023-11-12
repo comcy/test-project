@@ -14,6 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { AddItemDialogComponent } from './shared/components/add-item-dialog/add-item-dialog.component';
 import { HomeComponent } from './views/components/home/home.component';
 
+// This module is more or less the core-module of the application.
+// In this case such a module is needed to declare the used components and all relevant modules at once.
+// In difference to the AppModule you else could use the Standalone-components.
+// This approach is represented by components in the "shared" folder.
 @NgModule({
   declarations: [
     AppComponent,

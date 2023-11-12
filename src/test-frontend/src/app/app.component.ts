@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuBarItem } from './shared/components/menu-bar/menu-bar.interfaces';
 
+// This component is the root component of the application.
+// It is used in the index.html.
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Portfolio } from '../../models/portfolio';
 import { Observable } from 'rxjs';
 
+// This service is used to get the portfolio list.
+// It is used in the overview.component.ts.
+// It is a standalone service.
 @Injectable({
   providedIn: 'root',
 })
