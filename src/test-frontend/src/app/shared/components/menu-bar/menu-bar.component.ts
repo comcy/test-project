@@ -22,10 +22,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   styleUrl: './menu-bar.component.scss',
 })
 export class MenuBarComponent {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-
   @Input() title: string = '';
   @Input() menuBarItems: MenuBarItem[] = [];
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    console.log('Console ::: ', this.title);
+  }
 
   routerHome() {
     this.router.navigateByUrl('');
