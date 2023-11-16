@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailComponent } from './views/detail/detail.component';
-import { OverviewComponent } from './views/overview/overview.component';
-import { ImpressumComponent } from './views/impressum/impressum.component';
+import { DetailComponent } from './views/components/detail/detail.component';
+import { OverviewComponent } from './views/components/overview/overview.component';
+import { ImpressumComponent } from './views/components/impressum/impressum.component';
 import { HomeComponent } from './views/components/home/home.component';
 
 // Route Definiton: More detail under  https://angular.io/api/router/Routes
