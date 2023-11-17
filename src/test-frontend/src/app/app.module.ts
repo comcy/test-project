@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AddItemDialogComponent } from './shared/components/add-item-dialog/add-item-dialog.component';
 import { HomeComponent } from './views/components/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageListComponent } from './views/components/message-list/message-list.component';
 
 // This module is more or less the core-module of the application.
 // In this case such a module is needed to declare the used components and all relevant modules at once.
@@ -25,10 +27,12 @@ import { HomeComponent } from './views/components/home/home.component';
     OverviewComponent,
     DetailComponent,
     ImpressumComponent,
+    MessageListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MenuBarComponent,
     MatToolbarModule,
     MatPaginatorModule,

@@ -4,6 +4,7 @@ import { DetailComponent } from './views/components/detail/detail.component';
 import { OverviewComponent } from './views/components/overview/overview.component';
 import { ImpressumComponent } from './views/components/impressum/impressum.component';
 import { HomeComponent } from './views/components/home/home.component';
+import { MessageListComponent } from './views/components/message-list/message-list.component';
 
 // Route Definiton: More detail under  https://angular.io/api/router/Routes
 // Details here:
@@ -43,6 +44,11 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'message-list',
+    component: MessageListComponent,
+  },
+
   {
     path: 'impressum',
     component: ImpressumComponent,

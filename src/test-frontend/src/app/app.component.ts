@@ -17,6 +17,10 @@ export class AppComponent {
       routePath: 'overview',
     },
     {
+      name: 'Message List',
+      routePath: 'message-list',
+    },
+    {
       name: 'Impressum',
       routePath: 'impressum',
     },
