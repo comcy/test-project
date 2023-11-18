@@ -35,6 +35,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
       .getPortfolioList()
       .subscribe((response: Portfolio[]) => {
         this.portfolioList = response;
+        this.resultsLength = response.length;
       });
   }
 

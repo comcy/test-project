@@ -4,7 +4,9 @@ import { DetailComponent } from './views/components/detail/detail.component';
 import { OverviewComponent } from './views/components/overview/overview.component';
 import { ImpressumComponent } from './views/components/impressum/impressum.component';
 import { HomeComponent } from './views/components/home/home.component';
-import { MessageListComponent } from './views/components/message-list/message-list.component';
+import { MessageListComponent } from './views/components/message/message-list/message-list.component';
+import { MessageDetailComponent } from './views/components/message/message-detail/message-detail.component';
+import { MessageDetailDialogComponent } from './shared/components/message/message-detail-dialog/message-detail-dialog.component';
 
 // Route Definiton: More detail under  https://angular.io/api/router/Routes
 // Details here:
@@ -29,6 +31,11 @@ import { MessageListComponent } from './views/components/message-list/message-li
 // The empty path '' redirects to home.
 //
 const routes: Routes = [
+  {
+    path: 'detail/:id',
+    outlet: 'popup',
+    component: MessageDetailComponent,
+  },
   {
     path: 'home',
     component: HomeComponent,

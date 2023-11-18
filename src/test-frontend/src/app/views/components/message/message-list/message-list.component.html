@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span class="header-title" [routerLink]="'/overview'">Portfolio</span>
+  <span class="header-title" [routerLink]="'/message-list'">Messages</span>
   <span class="spacer"></span>
 </mat-toolbar>
 
@@ -7,39 +7,35 @@
   <div class="table-container">
     <table
       mat-table
-      [dataSource]="portfolioList"
+      [dataSource]="messages"
       class="table"
       matSort
-      matSortActive="created"
+      matSortActive="id"
       matSortDisableClear
       matSortDirection="desc"
       class="mat-elevation-z8"
     >
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
       </ng-container>
 
-      <!-- Price Column -->
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef>Price</th>
-        <td mat-cell *matCellDef="let row">{{ row.price }}</td>
-      </ng-container>
-
-      <!-- WKN Column -->
-      <ng-container matColumnDef="wkn">
-        <th mat-header-cell *matHeaderCellDef>WKN</th>
-        <td mat-cell *matCellDef="let row">{{ row.wkn }}</td>
+      <!-- Message Column -->
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef>Message</th>
+        <td mat-cell *matCellDef="let row">{{ row.message }}</td>
       </ng-container>
 
       <!-- Action Column -->
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Action</th>
         <td mat-cell *matCellDef="let row">
-          <button mat-flat-button color="primary" (click)="add()">+</button>
-          <span class="spacer"></span>
-          <button mat-stroked-button color="primary" (click)="openDialog()">
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="openDialog(row.id)"
+          >
             + Dialog
           </button>
         </td>
