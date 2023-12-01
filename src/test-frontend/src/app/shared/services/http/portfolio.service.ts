@@ -27,7 +27,6 @@ export class PortfolioService {
 
   public addPortfolio(): Observable<Portfolio> {
     return new Observable<Portfolio>(() => {
-      // TODO
       console.log('addPortfolio clicked');
     });
   }

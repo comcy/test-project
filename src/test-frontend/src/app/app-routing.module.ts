@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './shared/auth-core/auth-guard.service';
 import { DetailComponent } from './views/components/detail/detail.component';
-import { OverviewComponent } from './views/components/overview/overview.component';
-import { ImpressumComponent } from './views/components/impressum/impressum.component';
 import { HomeComponent } from './views/components/home/home.component';
-import { MessageListComponent } from './views/components/message/message-list/message-list.component';
+import { ImpressumComponent } from './views/components/impressum/impressum.component';
+import { LoginComponent } from './views/components/login/login.component';
+import { LogoutComponent } from './views/components/logout/logout.component';
 import { MessageDetailComponent } from './views/components/message/message-detail/message-detail.component';
-import { MessageDetailDialogComponent } from './shared/components/message/message-detail-dialog/message-detail-dialog.component';
+import { MessageListComponent } from './views/components/message/message-list/message-list.component';
+import { OverviewComponent } from './views/components/overview/overview.component';
 
 // Route Definiton: More detail under  https://angular.io/api/router/Routes
 // Details here:
@@ -32,19 +34,23 @@ import { MessageDetailDialogComponent } from './shared/components/message/messag
 //
 const routes: Routes = [
   {
-    path: 'detail/:id',
-    outlet: 'popup',
-    component: MessageDetailComponent,
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
   },
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'overview',
     component: OverviewComponent,
+    canActivate: [AuthGuardService],
     children: [
-      // Not used, but here for reference
       {
         path: ':id/detail',
         component: DetailComponent,
@@ -54,6 +60,7 @@ const routes: Routes = [
   {
     path: 'message-list',
     component: MessageListComponent,
+    canActivate: [AuthGuardService],
   },
 
   {
@@ -69,12 +76,16 @@ const routes: Routes = [
       ).then((mod) => mod.FourZeroFourComponent),
   },
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home',
+    path: 'detail/:id',
+    outlet: 'popup',
+    component: MessageDetailComponent,
   },
   {
-    // This is loading a standalone component `FourZeroFourComponent`
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'login',
+  },
+  {
     path: '**',
     loadComponent: () =>
       import(
