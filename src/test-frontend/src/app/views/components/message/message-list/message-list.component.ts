@@ -37,7 +37,6 @@ export class MessageListComponent implements OnInit {
       .getAllMessages()
       .pipe(takeUntil(this.toDestroy$))
       .subscribe((messages) => {
-        console.log(messages);
         this.messages = messages;
         this.resultsLength = messages.length;
       });

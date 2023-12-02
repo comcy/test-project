@@ -29,16 +29,13 @@ export class MenuBarComponent {
   @Input() title: string = '';
   @Input() menuBarItems: MenuBarItem[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    console.log('Console ::: ', this.title);
-  }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   routerHome() {
     this.router.navigateByUrl('');
   }
 
   routeTo(routeLink: string) {
-    console.log('routeTo', routeLink);
     this.router.navigate([routeLink], { relativeTo: this.activatedRoute });
   }
 }

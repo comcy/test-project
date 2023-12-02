@@ -55,14 +55,18 @@ export class AppComponent implements OnInit {
   constructor(private auth: AuthCoreService, private router: Router) {}
 
   ngOnInit() {
-    this.auth.isAuthenticated$().subscribe((isAuthenticated: boolean) => {
-      if (isAuthenticated) {
-        console.log('isAuthenticated', isAuthenticated);
-        this.router.navigate(['/overview']);
-      } else {
-        console.log('is not isAuthenticated', isAuthenticated);
-        this.router.navigate(['/login']);
-      }
-    });
+    this.checkLogin();
+  }
+
+  private checkLogin() {
+    this.auth.isAuthenticated$().pipe(
+      map((isAuthenticated: boolean) => {
+        if (isAuthenticated) {
+          this.router.navigate(['/home']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      })
+    );
   }
 }

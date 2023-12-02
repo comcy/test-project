@@ -18,9 +18,11 @@ export class AuthCoreService {
   public isAuthenticated$(): Observable<boolean> {
     let token = this.getToken();
     if (token === undefined || token === null) {
-      this.isAuthenticatedSubject.next(false);
+      this.setAuthState(false);
+      this.router.navigate(['/login']);
       return this.isAuthenticatedSubject.asObservable();
     }
+    this.setAuthState(true);
     return this.isAuthenticatedSubject.asObservable();
   }
 
@@ -36,14 +38,14 @@ export class AuthCoreService {
           this.registerSuccessfulLogin(
             `${window.btoa(username + ':' + password)}`
           );
-          this.setIsAuthenticated(true);
+          this.setAuthState(true);
         })
       );
   }
 
   public logout() {
     sessionStorage.removeItem(AUTH_TOKEN_NAME);
-    this.setIsAuthenticated(false);
+    this.setAuthState(false);
     this.router.navigate(['/logout']);
   }
 
@@ -53,10 +55,10 @@ export class AuthCoreService {
 
   private registerSuccessfulLogin(token: string) {
     sessionStorage.setItem(AUTH_TOKEN_NAME, token);
-    this.setIsAuthenticated(true);
+    this.setAuthState(true);
   }
 
-  private setIsAuthenticated(isAuthenticated: boolean): void {
+  private setAuthState(isAuthenticated: boolean): void {
     this.isAuthenticatedSubject.next(isAuthenticated);
   }
 
