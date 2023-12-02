@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 
 const LOGIN_URL = 'http://localhost:8080/v1/login';
@@ -12,7 +13,7 @@ export class AuthCoreService {
   private isAuthenticatedSubject: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   public isAuthenticated$(): Observable<boolean> {
     let token = this.getToken();
@@ -43,6 +44,7 @@ export class AuthCoreService {
   public logout() {
     sessionStorage.removeItem(AUTH_TOKEN_NAME);
     this.setIsAuthenticated(false);
+    this.router.navigate(['/logout']);
   }
 
   public getToken() {

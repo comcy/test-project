@@ -15,13 +15,13 @@
       </button>
 
       <button
-        *ngIf="item.highlighted && visibleItem"
-        mat-flat-button
+        *ngIf="item.highlighted && item.icon && visibleItem"
+        mat-icon-button
         [color]="item.name === 'Login' ? 'accent' : 'warn'"
         (click)="routeTo(item.routePath)"
         [matTooltip]="item.name"
       >
-        {{ item.name }}
+        <mat-icon>{{ item.icon }}</mat-icon>
       </button>
     </ng-container>
   </div>

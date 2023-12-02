@@ -27,7 +27,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     console.log('REQ *** ', req.url);
 
-    if (auth && req.url.indexOf('login') === -1) {
+    if (auth) {
       const authReq = req.clone({
         headers: new HttpHeaders({
           'Content-Type': 'application/json',

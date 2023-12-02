@@ -5,4 +5,5 @@ export interface MenuBarItem {
   routePath: string;
   visible?: Observable<boolean>;
   highlighted?: boolean;
+  icon?: string;
 }

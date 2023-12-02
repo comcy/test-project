@@ -10,7 +10,6 @@ export class AuthGuardService implements CanActivate {
   constructor(private auth: AuthCoreService) {}
 
   canActivate(): Observable<boolean | UrlTree> {
-    // return this.auth.isAuthenticated$();
-    return of(true);
+    return this.auth.isAuthenticated$();
   }
 }
