@@ -24,9 +24,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Dependencies
-        # run: npm install
         run: cd src/test-frontend/ && npm install
 
       - name: Build Angular App
-        run: npm run build
-        # run: cd src/test-frontend/ && npm run build
+        run: cd src/test-frontend/ && npm run build
